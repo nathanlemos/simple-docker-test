@@ -97,6 +97,9 @@ show databases;
 ```sh
 # Listar todos os volumes
 docker volume ls
+
+# Remover volume
+docker volume rm mysqlVolume
 ```
 
 ## Network
@@ -107,5 +110,8 @@ docker network ls
 
 # Criar rede mynet
 docker network create mynet
+
+#Remove network
+docker network rm mynet
 
 ```
