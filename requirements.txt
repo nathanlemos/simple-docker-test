@@ -1,6 +1,8 @@
 blinker==1.8.2
+cffi==1.16.0
 cfgv==3.4.0
 click==8.1.7
+cryptography==42.0.7
 distlib==0.3.8
 filelock==3.14.0
 flask==3.0.3
@@ -13,6 +15,8 @@ MarkupSafe==2.1.5
 nodeenv==1.8.0
 platformdirs==4.2.2
 pre-commit==3.5.0
+pycparser==2.22
+PyMySQL==1.1.1
 PyYAML==6.0.1
 SQLAlchemy==2.0.30
 typing-extensions==4.12.0
