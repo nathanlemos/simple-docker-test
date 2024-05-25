@@ -16,5 +16,4 @@ def insert():
 
     userRepo.insert_user(body["name"])
 
-    return f"Inseriu {body["name"]}"
-
+    return f"Inseriu {body['name']}"

@@ -9,8 +9,8 @@ class DBConnection:
 
     def __enter__(self):
         engine = create_engine(self.__connection_string)
-        sessionmaker = sessionmaker()
-        self.session = sessionmaker(bind=engine)
+        session_maker = sessionmaker()
+        self.session = session_maker(bind=engine)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):

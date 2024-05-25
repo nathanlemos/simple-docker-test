@@ -27,8 +27,9 @@ Incializar container com a imagem
 
 ```sh
 docker run docker-python
-docker run -d docker-python                # Detached mode
-docker run -p 2300:5000 -d docker-python   # Mapeando porta 5000 do container para 2300 do host
+docker run -d docker-python                                # Detached mode
+docker run -p 2300:5000 -d docker-python                   # Mapeando porta 5000 do container para 2300 do host
+docker run -p 3000:5000 --network mynet  docker-pythonv2   # Define uso da rede específica
 
 ```
 
@@ -56,6 +57,9 @@ docker exec -it ID_DO_CONTAINER bash
 
 ```sh
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=senha -d mysql:latest
+
+docker run -e MYSQL_ROOT_PASSWORD=senha --name mysqldb --network mynet -v mysqlVolume:/var/lib/mysql -d mysql:latest
+
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=senha -p 3308:3306 -v mysqlVolume:/var/lib/mysql -d mysql:latest
 
 # --name           # define nome do container
@@ -63,6 +67,7 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=senha -p 3308:3306 -v mysqlV
 # -d               # entra em modo detached
 # mysql:latest     # Define qual versão será usada pela tag
 # -v               # Mapeia o diretorio /var/lib/mysql do container para o volume mysqlVolume
+# --network mynet  # Define rede mynet. Usado para colocar serviços na mesma rede
 ```
 
 Inserindo dados por arquivo no db (não é seguro, não faça)
@@ -92,4 +97,15 @@ show databases;
 ```sh
 # Listar todos os volumes
 docker volume ls
+```
+
+## Network
+
+```sh
+# Listar todos as redes
+docker network ls
+
+# Criar rede mynet
+docker network create mynet
+
 ```
